@@ -79,10 +79,12 @@ class OnlineSalesRegisterCollector:
     def total_tax(self): 
         total_nds = self.ten_percent_tax_calculation() + self.twenty_percent_tax_calculation()
         return total_nds
-
+    
+    @staticmethod
     def get_telephone_number(telephone_number):
+        telephone_number = str(telephone_number)
         if not telephone_number.isdigit():
             raise ValueError('Необходимо ввести цифры')
         if len(telephone_number) > 10:
             raise ValueError('Необходимо ввести 10 цифр после "+7"') 
-        return f'+7{telephone_number}'                       
+        return f'+7{telephone_number}'                     
